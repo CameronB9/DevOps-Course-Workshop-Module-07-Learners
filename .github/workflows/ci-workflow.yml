@@ -20,4 +20,4 @@ jobs:
     - name: npm test
       run: cd DotnetTemplate.Web && npm run test
     - name: Send slack notification
-      run: curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} -d {"text":"GitHub Action for DevOps-Course-Workshop-Module-07-Learners has finished"}
+      run: curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} -d '{"text":"GitHub Action for DevOps-Course-Workshop-Module-07-Learners has finished"}'
