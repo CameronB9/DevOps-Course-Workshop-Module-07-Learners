@@ -19,5 +19,12 @@ jobs:
       run: cd DotnetTemplate.Web && npm run lint
     - name: npm test
       run: cd DotnetTemplate.Web && npm run test
-    - name: Send slack notification
-      run: curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} -d '{"text":"GitHub Action for DevOps-Course-Workshop-Module-07-Learners has finished"}'
+    - name: Send slack notification success
+      run: curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} -d '{"text":"✅ GitHub Action for DevOps-Course-Workshop-Module-07-Learners has finished"}'
+      if: ${{ success() }}
+    - name: Send slack notification fail
+      run: curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} -d '{"text":"❌ GitHub Action for DevOps-Course-Workshop-Module-07-Learners has failed"}'
+      if: ${{ failure() }}
+    - name: Send slack notification cancel
+      run: curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} -d '{"text":"✖ GitHub Action for DevOps-Course-Workshop-Module-07-Learners has been cancelled"}'
+      if: ${{ cancelled() }}
