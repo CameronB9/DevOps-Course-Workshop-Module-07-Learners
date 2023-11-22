@@ -19,3 +19,5 @@ jobs:
       run: cd DotnetTemplate.Web && npm run lint
     - name: npm test
       run: cd DotnetTemplate.Web && npm run test
+    - name: Send slack notification
+      run: curl ${{ secrets.SLACK_WEBHOOK_URL }} -d '{ "text": "GitHub Action for DevOps-Course-Workshop-Module-07-Learners is complete!" }'
