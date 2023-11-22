@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('dotnet') {
             agent {
-                docker: { image: 'mcr.microsoft.com/dotnet/sdk:8.0' }
+                docker { image 'mcr.microsoft.com/dotnet/sdk:7.0' }
             }
             steps {
                 sh 'dotnet -h'
