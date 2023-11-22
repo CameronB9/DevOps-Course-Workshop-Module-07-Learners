@@ -10,7 +10,8 @@ pipeline {
                 XDG_DATA_HOME = '/tmp'
             }
             steps {
-                sh 'dotnet -h'
+                sh 'dotnet build'
+                sh 'dotnet test'
             }
         }
     }
