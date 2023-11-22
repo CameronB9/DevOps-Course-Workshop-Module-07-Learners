@@ -11,6 +11,9 @@ pipeline {
             }
         }
         stage('node') {
+            agent {
+                docker: { image: 'node:17-bullseye' }
+            }
             steps {
                 echo 'Testing..'
             }
